@@ -26,6 +26,8 @@ namespace data {
 class camera_database;
 class map_database;
 class bow_database;
+class landmark;
+class keyframe;
 } // namespace data
 
 namespace publish {
@@ -50,6 +52,8 @@ public:
     //! Shutdown the SLAM system
     void shutdown();
 
+    std::vector<openvslam::data::landmark*> print_landmarks();
+    
     //-----------------------------------------
     // data I/O
 
