@@ -21,26 +21,14 @@
 #include <tf2_ros/transform_broadcaster.h>
 
 //anthonymiglio//////////////////////////////////////////////////
-//#include <std_msgs/Time.h>
 #include <sensor_msgs/PointCloud2.h> //ROS message type to publish a pointCloud
-//#include <sensor_msgs/point_cloud_iterator.h>
 #include "openvslam/data/landmark.h"
-//#include "openvslam/data/map_database.h"
-//#include "openvslam/module/local_map_updater.h"
-// #include <algorithm> // std::count
-// #include <typeinfo>
 #include <pcl/io/pcd_io.h> //definitions for PCD I/O operations
 #include <pcl/point_types.h> //contains definitions for several point type structures, including pcl::PointXYZ
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl_ros/point_cloud.h> //to convert between PCL and ROS
 
-//typedef pcl::PointCloud<pcl::PointXYZ> PointCloudXYZ;
-typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
-
-// pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
-
 #include <tf2_sensor_msgs/tf2_sensor_msgs.h>
-// #include <sensor_msgs/PointCloud2.h>
 #include <geometry_msgs/TransformStamped.h>
 //anthonymiglio//////////////////////////////////////////////////
 
