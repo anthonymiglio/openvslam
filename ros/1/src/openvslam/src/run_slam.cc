@@ -124,7 +124,6 @@ void local_pointcloud_pub(auto local_landmarks, auto pub){
                         0.0, -1.0, 0.0;
     
     // Fill in new PointCloud2 message (2D image-like layout)
-    // pcl::PointCloud<pcl::PointXYZ>::Ptr msg (new pcl::PointCloud<pcl::PointXYZ>);
     PointCloudXYZ::Ptr msg (new PointCloudXYZ());
     msg->header.frame_id = "map";
     msg->height = 1;
@@ -138,7 +137,6 @@ void local_pointcloud_pub(auto local_landmarks, auto pub){
         //std::cout<<pcl::PointXYZ(pos_w[0], pos_w[1],pos_w[2])<<std::endl;
     }
 
-    // pcl::PointCloud<pcl::PointXYZ>::Ptr transformed_cloud (new pcl::PointCloud<pcl::PointXYZ> ());
     PointCloudXYZ::Ptr transformed_cloud (new PointCloudXYZ());
 
     // Apply the transform from RDF to FLU to entire PointCloud
