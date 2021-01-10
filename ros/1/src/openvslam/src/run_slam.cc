@@ -140,17 +140,15 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
 
     // initialize this node
     ros::NodeHandle nh;
-    image_transport::ImageTransport it(nh);
-    ros::Publisher camera_pose_publisher = nh.advertise<geometry_msgs::PoseStamped>("/openvslam/camera_pose", 1);
+    image_transport::ImageTransport it(nh);149
+    ros::Publisher camera_pose_publisher = nh.advertise<geometry_149msgs::PoseStamped>("/openvslam/camera_pose", 1);
     ros::Publisher odometry_pub_publisher = nh.advertise<nav_msgs::Odometry>("/openvslam/odometry", 1);
-    ros::Publisher point_cloud_publisher = nh.advertise<PointCloudXYZ> ("/openvslam/point_cloud", 1);
+    ros::Publisher local_pointcloud_publisher = nh.advertise<PointCloudXYZ> ("/openvslam/local_pointcloud", 1);
 
     // run the SLAM as subscriber
     image_transport::Subscriber sub = it.subscribe("camera/image_raw", 1, [&](const sensor_msgs::ImageConstPtr& msg) {
         const auto tp_1 = std::chrono::steady_clock::now();
         const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
-    //ou
-149
 
         // input the current frame and estimate the camera pose
         auto cam_pose = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
@@ -162,9 +160,10 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
 
         pose_odometry_pub(cam_pose, camera_pose_publisher, odometry_pub_publisher);
         
+        // input the current local_landmarks and estimate the local_pointcloud
         auto local_landmarks = SLAM.print_landmarks();
 
-        point_cloud_pub(local_landmarks, point_cloud_publisher);
+        local_pointcloud_pub(local_landmarks, local_pointcloud_publisher);
         
     });
 
