@@ -317,7 +317,6 @@ int main(int argc, char* argv[]) {
     std::shared_ptr<openvslam::config> cfg;
     try {
         cfg = std::make_shared<openvslam::config>(setting_file_path->value());
-
     }
     catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
