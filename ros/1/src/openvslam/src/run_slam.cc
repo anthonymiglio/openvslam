@@ -6,7 +6,7 @@
 
 #include <openvslam/system.h>
 #include <openvslam/config.h>
-#include "openvslam/data/landmark.h" ////////////////////////////////////
+#include "openvslam/data/landmark.h"
 
 #include <iostream>
 #include <chrono>
@@ -17,11 +17,10 @@
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
 #include <geometry_msgs/PoseStamped.h>
-#include <geometry_msgs/TransformStamped.h> ////////////////////////////////////
+#include <geometry_msgs/TransformStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <tf2_ros/transform_broadcaster.h>
-#include <tf2_sensor_msgs/tf2_sensor_msgs.h> ////////////////////////////////////
 
 #include <sensor_msgs/PointCloud2.h> //ROS message type to publish a pointCloud
 #include <pcl/io/pcd_io.h> //definitions for PCD I/O operations
