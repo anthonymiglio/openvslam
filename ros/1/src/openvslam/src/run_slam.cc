@@ -42,6 +42,8 @@
 #include <gperftools/profiler.h>
 #endif
 
+typedef pcl::PointCloud<pcl::PointXYZ> PointCloudXYZ;
+
 void pose_odometry_pub(auto cam_pose_, auto pose_pub_, auto odometry_pub_){
     Eigen::Matrix3d rotation_matrix = cam_pose_.block(0, 0, 3, 3);
     Eigen::Vector3d translation_vector = cam_pose_.block(0, 3, 3, 1);
@@ -141,6 +143,7 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     image_transport::ImageTransport it(nh);
     ros::Publisher camera_pose_publisher = nh.advertise<geometry_msgs::PoseStamped>("/openvslam/camera_pose", 1);
     ros::Publisher odometry_pub_publisher = nh.advertise<nav_msgs::Odometry>("/openvslam/odometry", 1);
+    ros::Publisher cloud_publisher = nh.advertise<PointCloudXYZ> ("/openvslam/cloud", 1);
 
     // run the SLAM as subscriber
     image_transport::Subscriber sub = it.subscribe("camera/image_raw", 1, [&](const sensor_msgs::ImageConstPtr& msg) {
