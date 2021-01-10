@@ -130,14 +130,13 @@ endif()
 find_package(catkin REQUIRED COMPONENTS
         cv_bridge
         image_transport
-	    geometry_msgs
-	    std_msgs
+	geometry_msgs
+	std_msgs
         nav_msgs
-	    tf2_geometry_msgs
+	tf2_geometry_msgs
         sensor_msgs
         pcl_ros
-        pcl_conversions
-	    )
+        pcl_conversions)
 
 # thread library
 find_package(Threads REQUIRED)
@@ -199,10 +198,13 @@ endif()
 catkin_package(CATKIN_DEPENDS
         cv_bridge
         image_transport
-	    geometry_msgs
-	    std_msgs
+	geometry_msgs
+	std_msgs
         nav_msgs
-	    tf2_geometry_msgs)
+	tf2_geometry_msgs
+        sensor_msgs
+        pcl_ros
+        pcl_conversions)
 
 #################
 # BoW framework #
@@ -236,6 +238,7 @@ include_directories(
 
 link_libraries(
         ${catkin_LIBRARIES}
-        ${OpenVSLAM_LIB})
+        ${OpenVSLAM_LIB}
+        ${PCL_LIBRARIES})
 
 add_subdirectory(src)
