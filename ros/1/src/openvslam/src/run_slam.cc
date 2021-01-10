@@ -172,7 +172,7 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
 
     // initialize this node
     ros::NodeHandle nh;
-    image_transport::ImageTransport it(nh);149
+    image_transport::ImageTransport it(nh);
     ros::Publisher camera_pose_publisher = nh.advertise<geometry_149msgs::PoseStamped>("/openvslam/camera_pose", 1);
     ros::Publisher odometry_pub_publisher = nh.advertise<nav_msgs::Odometry>("/openvslam/odometry", 1);
     ros::Publisher local_pointcloud_publisher = nh.advertise<PointCloudXYZ> ("/openvslam/local_pointcloud", 1);
@@ -227,7 +227,6 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     ros::spin();
 
     // automatically close the viewer    //ou
-149
 
 #ifdef USE_PANGOLIN_VIEWER
     viewer.request_terminate();
@@ -250,9 +249,7 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
             for (const auto track_time : track_times) {
                 ofs << track_time << std::endl;
             }
-            ofs.close();    //ou
-149
-
+            ofs.close();
         }
     }
 
@@ -319,8 +316,7 @@ int main(int argc, char* argv[]) {
     // load configuration
     std::shared_ptr<openvslam::config> cfg;
     try {
-        cfg = std::make_shared<openvslam::config>(setting_file_path->value());    //ou
-149
+        cfg = std::make_shared<openvslam::config>(setting_file_path->value());
 
     }
     catch (const std::exception& e) {
@@ -343,8 +339,6 @@ int main(int argc, char* argv[]) {
 #ifdef USE_GOOGLE_PERFTOOLS
     ProfilerStop();
 #endif
-    //ou
-149
 
     return EXIT_SUCCESS;
 }
