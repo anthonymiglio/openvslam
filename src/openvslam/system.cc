@@ -7,12 +7,12 @@
 #include "openvslam/data/camera_database.h"
 #include "openvslam/data/map_database.h"
 #include "openvslam/data/bow_database.h"
+#include "openvslam/data/landmark.h"
+#include "openvslam/data/keyframe.h"
 #include "openvslam/io/trajectory_io.h"
 #include "openvslam/io/map_database_io.h"
 #include "openvslam/publish/map_publisher.h"
 #include "openvslam/publish/frame_publisher.h"
-#include "openvslam/data/landmark.h"
-#include "openvslam/data/keyframe.h"
 
 #include <thread>
 
