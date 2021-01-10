@@ -125,7 +125,7 @@ void local_pointcloud_pub(auto local_landmarks, auto pub){
     
     // Fill in new PointCloud2 message (2D image-like layout)
     // pcl::PointCloud<pcl::PointXYZ>::Ptr msg (new pcl::PointCloud<pcl::PointXYZ>);
-    PointCloudXYZ::Ptr msg (new PointCloudXYZ);
+    PointCloudXYZ::Ptr msg (new PointCloudXYZ());
     msg->header.frame_id = "map";
     msg->height = 1;
     msg->width = local_landmarks.size();
