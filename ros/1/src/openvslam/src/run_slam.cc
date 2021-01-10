@@ -124,23 +124,24 @@ void local_pointcloud_pub(auto local_landmarks, auto pub){
                         0.0, -1.0, 0.0;
     
     // Fill in new PointCloud2 message (2D image-like layout)
-    PointCloudXYZ::Ptr msg (new PointCloudXYZ());
-    msg->header.frame_id = "map";
-    msg->height = 1;
-    msg->width = local_landmarks.size();
+    PointCloudXYZ::Ptr cloud (new PointCloudXYZ());
+    cloud->header.frame_id = "map";
+    cloud->height = 1;
+    cloud->width = local_landmarks.size();
     for (const auto local_lm : local_landmarks){
+
         const openvslam::Vec3_t pos_w = local_lm->get_pos_in_world();
         // std::cout << "| Landmark Pose : \n" << pos_w << std::endl;
         // std::cout << "| ref_keyframe: " << lm->get_ref_keyframe()->id_;
         // std::cout << "x: "<< pos_w[0] << " | y: " << pos_w[1] << " | z: " << pos_w[2] << std::endl;
-        msg->points.push_back (pcl::PointXYZ(pos_w[0], pos_w[1],pos_w[2]));
+
+        cloud->points.push_back (pcl::PointXYZ(pos_w[0], pos_w[1],pos_w[2]));
         //std::cout<<pcl::PointXYZ(pos_w[0], pos_w[1],pos_w[2])<<std::endl;
     }
 
-    PointCloudXYZ::Ptr transformed_cloud (new PointCloudXYZ());
-
+    PointCloudXYZ::Ptr cloud (new PointCloudXYZ());
     // Apply the transform from RDF to FLU to entire PointCloud
-    pcl::transformPointCloud (*msg, *transformed_cloud, transform);
+    pcl::transformPointCloud (*cloud, *transformed_cloud, transform);
     
     // Publish as PointCloud2
     pcl_conversions::toPCL(ros::Time::now(), transformed_cloud->header.stamp);
