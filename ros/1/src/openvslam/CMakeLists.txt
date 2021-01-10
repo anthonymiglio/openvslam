@@ -133,7 +133,11 @@ find_package(catkin REQUIRED COMPONENTS
 	    geometry_msgs
 	    std_msgs
         nav_msgs
-	    tf2_geometry_msgs)
+	    tf2_geometry_msgs
+        sensor_msgs
+        pcl_ros
+        pcl_conversions
+	    )
 
 # thread library
 find_package(Threads REQUIRED)
