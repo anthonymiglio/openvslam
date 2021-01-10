@@ -17,20 +17,17 @@
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
 #include <geometry_msgs/PoseStamped.h>
+#include <geometry_msgs/TransformStamped.h> ////////////////////////////////////
 #include <nav_msgs/Odometry.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <tf2_ros/transform_broadcaster.h>
+#include <tf2_sensor_msgs/tf2_sensor_msgs.h> ////////////////////////////////////
 
-//anthonymiglio//////////////////////////////////////////////////
 #include <sensor_msgs/PointCloud2.h> //ROS message type to publish a pointCloud
 #include <pcl/io/pcd_io.h> //definitions for PCD I/O operations
 #include <pcl/point_types.h> //contains definitions for several point type structures, including pcl::PointXYZ
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl_ros/point_cloud.h> //to convert between PCL and ROS
-
-#include <tf2_sensor_msgs/tf2_sensor_msgs.h>
-#include <geometry_msgs/TransformStamped.h>
-//anthonymiglio//////////////////////////////////////////////////
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgcodecs.hpp>
