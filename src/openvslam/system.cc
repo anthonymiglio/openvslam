@@ -358,24 +358,23 @@ std::vector<openvslam::data::landmark*> system::print_landmarks(){
 
     map_publisher_->get_landmarks(landmarks, local_landmarks);
     std::vector<openvslam::data::landmark*> local_landmarks_vector(local_landmarks.begin(), local_landmarks.end());
-    
-    std::vector<float> data;
-
-    for (const auto lm : landmarks) {
-        if (!lm || lm->will_be_erased()) {
-            continue;
-        }
-        if (local_landmarks.count(lm)) {
-            continue;
-        }
-        const openvslam::Vec3_t pos_w = lm->get_pos_in_world();
-        int intensity = 1;
-        data.push_back()
-        data.pushback(pos_w[0]);
-        data.pushback(pos_w[1]);
-        data.pushback(pos_w[2]);
     }    
     return local_landmarks_vector;
 }
-    
+//  For future implementation of global landamarks publisher
+//     std::vector<float> data;
+
+//     for (const auto lm : landmarks) {
+//         if (!lm || lm->will_be_erased()) {
+//             continue;
+//         }
+//         if (local_landmarks.count(lm)) {
+//             continue;
+//         }
+//         const openvslam::Vec3_t pos_w = lm->get_pos_in_world();
+//         data.push_back()
+//         data.pushback(pos_w[0]);
+//         data.pushback(pos_w[1]);
+//         data.pushback(pos_w[2]);    
+
 } // namespace openvslam
