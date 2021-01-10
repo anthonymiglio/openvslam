@@ -25,8 +25,8 @@
 #include <sensor_msgs/PointCloud2.h> //ROS message type to publish a pointCloud
 //#include <sensor_msgs/point_cloud_iterator.h>
 #include "openvslam/data/landmark.h"
-#include "openvslam/data/map_database.h"
-//#include "openvslam/module/local_map_updater.h"
+//#include "openvslam/data/map_database.h"
+#include "openvslam/module/local_map_updater.h"
 #include <algorithm> // std::count
 #include <typeinfo>
 #include <pcl/io/pcd_io.h> //definitions for PCD I/O operations
