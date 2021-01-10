@@ -191,11 +191,11 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
         track_times.push_back(track_time);
 
         pose_odometry_pub(cam_pose, camera_pose_publisher, odometry_pub_publisher);
-        //
-        // input the current local_landmarks and estimate the local_pointcloud\\
-        auto local_landmarks = SLAM.print_landmarks();\\
-        \\
-        local_pointcloud_pub(local_landmarks, local_pointcloud_publisher);\\
+        
+        // input the current local_landmarks and estimate the local_pointcloud
+        auto local_landmarks = SLAM.print_landmarks();
+        
+        local_pointcloud_pub(local_landmarks, local_pointcloud_publisher);
     });
 
     // run the viewer in another thread
