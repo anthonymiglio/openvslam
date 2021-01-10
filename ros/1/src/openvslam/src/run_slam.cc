@@ -27,8 +27,8 @@
 #include "openvslam/data/landmark.h"
 //#include "openvslam/data/map_database.h"
 //#include "openvslam/module/local_map_updater.h"
-#include <algorithm> // std::count
-#include <typeinfo>
+// #include <algorithm> // std::count
+// #include <typeinfo>
 #include <pcl/io/pcd_io.h> //definitions for PCD I/O operations
 #include <pcl/point_types.h> //contains definitions for several point type structures, including pcl::PointXYZ
 #include <pcl_conversions/pcl_conversions.h>
