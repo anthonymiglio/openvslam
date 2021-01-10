@@ -139,6 +139,8 @@ void local_pointcloud_pub(auto local_landmarks, auto pub){
     }
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr transformed_cloud (new pcl::PointCloud<pcl::PointXYZ> ());
+    PointCloudXYZ::Ptr transformed_cloud (new PointCloudXYZ());
+
     // Apply the transform from RDF to FLU to entire PointCloud
     pcl::transformPointCloud (*msg, *transformed_cloud, transform);
     
