@@ -104,7 +104,7 @@ void pose_odometry_pub(auto cam_pose_, auto pose_pub_, auto odometry_pub_){
     tf_br.sendTransform(transformStamped);
 }
 
-// 1 2 3 testando
+// 1 2 3 testando 1 2 3 testando
 
 void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::string& vocab_file_path,
                    const std::string& mask_img_path, const bool eval_log, const std::string& map_db_path) {
