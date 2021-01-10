@@ -171,6 +171,13 @@ include_directories(${popl_INCLUDE_DIR})
 set(json_INCLUDE_DIR ${OpenVSLAM_ROOT}/3rd/json/include)
 include_directories(${json_INCLUDE_DIR})
 
+# pcl
+find_package(PCL 1.7 REQUIRED REQUIRED)
+#set(PCL_INCLUDE_DIRS ${OpenVSLAM_ROOT}/3rd/pcl/include)
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
 # pangolin viewer
 set(USE_PANGOLIN_VIEWER ON CACHE BOOL "Enable Pangolin Viewer")
 if(USE_PANGOLIN_VIEWER)
