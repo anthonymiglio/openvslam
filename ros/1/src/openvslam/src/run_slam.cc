@@ -6,6 +6,7 @@
 
 #include <openvslam/system.h>
 #include <openvslam/config.h>
+#include "openvslam/data/landmark.h" ////////////////////////////////////
 
 #include <iostream>
 #include <chrono>
@@ -22,7 +23,6 @@
 
 //anthonymiglio//////////////////////////////////////////////////
 #include <sensor_msgs/PointCloud2.h> //ROS message type to publish a pointCloud
-#include "openvslam/data/landmark.h"
 #include <pcl/io/pcd_io.h> //definitions for PCD I/O operations
 #include <pcl/point_types.h> //contains definitions for several point type structures, including pcl::PointXYZ
 #include <pcl_conversions/pcl_conversions.h>
