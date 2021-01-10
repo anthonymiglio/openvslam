@@ -143,15 +143,14 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     image_transport::ImageTransport it(nh);
     ros::Publisher camera_pose_publisher = nh.advertise<geometry_msgs::PoseStamped>("/openvslam/camera_pose", 1);
     ros::Publisher odometry_pub_publisher = nh.advertise<nav_msgs::Odometry>("/openvslam/odometry", 1);
-    
-    ros::Publisher cloud_publisher = nh.advertise<PointCloudXYZ> ("/openvslam/cloud", 1);
-    //ou
-    ros::Publisher cloud_publisher = nh.advertise<pcl::PointCloud<pcl::PointXYZ>> ("/openvslam/cloud", 1);
+    ros::Publisher point_cloud_publisher = nh.advertise<PointCloudXYZ> ("/openvslam/point_cloud", 1);
 
     // run the SLAM as subscriber
     image_transport::Subscriber sub = it.subscribe("camera/image_raw", 1, [&](const sensor_msgs::ImageConstPtr& msg) {
         const auto tp_1 = std::chrono::steady_clock::now();
         const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
+    //ou
+149
 
         // input the current frame and estimate the camera pose
         auto cam_pose = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
@@ -191,7 +190,9 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
 
     ros::spin();
 
-    // automatically close the viewer
+    // automatically close the viewer    //ou
+149
+
 #ifdef USE_PANGOLIN_VIEWER
     viewer.request_terminate();
     thread.join();
@@ -213,7 +214,9 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
             for (const auto track_time : track_times) {
                 ofs << track_time << std::endl;
             }
-            ofs.close();
+            ofs.close();    //ou
+149
+
         }
     }
 
@@ -280,7 +283,9 @@ int main(int argc, char* argv[]) {
     // load configuration
     std::shared_ptr<openvslam::config> cfg;
     try {
-        cfg = std::make_shared<openvslam::config>(setting_file_path->value());
+        cfg = std::make_shared<openvslam::config>(setting_file_path->value());    //ou
+149
+
     }
     catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
@@ -302,6 +307,8 @@ int main(int argc, char* argv[]) {
 #ifdef USE_GOOGLE_PERFTOOLS
     ProfilerStop();
 #endif
+    //ou
+149
 
     return EXIT_SUCCESS;
 }
