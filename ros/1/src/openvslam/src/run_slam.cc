@@ -23,7 +23,6 @@
 //anthonymiglio//////////////////////////////////////////////////
 #include <std_msgs/Time.h>
 #include <sensor_msgs/PointCloud2.h> //ROS message type to publish a pointCloud
-//#include <sensor_msgs/PointField.h>
 //#include <sensor_msgs/point_cloud_iterator.h>
 #include "openvslam/data/landmark.h"
 #include "openvslam/data/map_database.h"
