@@ -143,7 +143,10 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     image_transport::ImageTransport it(nh);
     ros::Publisher camera_pose_publisher = nh.advertise<geometry_msgs::PoseStamped>("/openvslam/camera_pose", 1);
     ros::Publisher odometry_pub_publisher = nh.advertise<nav_msgs::Odometry>("/openvslam/odometry", 1);
+    
     ros::Publisher cloud_publisher = nh.advertise<PointCloudXYZ> ("/openvslam/cloud", 1);
+    //ou
+    ros::Publisher cloud_publisher = nh.advertise<pcl::PointCloud<pcl::PointXYZ>> ("/openvslam/cloud", 1);
 
     // run the SLAM as subscriber
     image_transport::Subscriber sub = it.subscribe("camera/image_raw", 1, [&](const sensor_msgs::ImageConstPtr& msg) {
