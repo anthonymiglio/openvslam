@@ -114,7 +114,7 @@ void pose_odometry_pub(auto cam_pose_, auto pose_pub_, auto odometry_pub_){
     tf_br.sendTransform(transformStamped);
 }
 
-void local_pointcloud_pub(auto local_landmarks, auto pub){
+void local_pointcloud_pub(auto local_landmarks_, auto local_pointcloud_pub_){
 
     Eigen::Affine3f transform = Eigen::Affine3f::Identity();
     // Assign rot_open_to_ros matrix (RDF to FLU coordinates)
@@ -126,8 +126,8 @@ void local_pointcloud_pub(auto local_landmarks, auto pub){
     PointCloudXYZ::Ptr cloud (new PointCloudXYZ());
     cloud->header.frame_id = "map";
     cloud->height = 1;
-    cloud->width = local_landmarks.size();
-    for (const auto local_lm : local_landmarks){
+    cloud->width = local_landmarks_.size();
+    for (const auto local_lm : local_landmarks_){
 
         const openvslam::Vec3_t pos_w = local_lm->get_pos_in_world();
         // std::cout << "| Landmark Pose : \n" << pos_w << std::endl;
@@ -144,7 +144,7 @@ void local_pointcloud_pub(auto local_landmarks, auto pub){
     
     // Publish as PointCloud2
     pcl_conversions::toPCL(ros::Time::now(), transformed_cloud->header.stamp);
-    pub.publish (transformed_cloud);
+    local_pointcloud_pub_.publish (transformed_cloud);
 }
 
 void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::string& vocab_file_path,
