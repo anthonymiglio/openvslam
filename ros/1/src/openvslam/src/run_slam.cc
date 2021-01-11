@@ -138,7 +138,7 @@ void local_pointcloud_pub(auto local_landmarks_, auto local_pointcloud_pub_){
         //std::cout<<pcl::PointXYZ(pos_w[0], pos_w[1],pos_w[2])<<std::endl;
     }
 
-    PointCloudXYZ::Ptr cloud (new PointCloudXYZ());
+    PointCloudXYZ::Ptr transformed_cloud (new PointCloudXYZ());
     // Apply the transform from RDF to FLU to entire PointCloud
     pcl::transformPointCloud (*cloud, *transformed_cloud, transform);
     
