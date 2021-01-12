@@ -242,14 +242,10 @@ message(STATUS "BoW framework: ${BOW_FRAMEWORK} (found in ${BOW_INCLUDE_DIRS})")
 
 include_directories(
         ${catkin_INCLUDE_DIRS}
-        ${OpenVSLAM_SRC_DIR}
-        # ${PCL_INCLUDE_DIRS}
-	)
+        ${OpenVSLAM_SRC_DIR})
 	
 link_libraries(
         ${catkin_LIBRARIES}
-        ${OpenVSLAM_LIB}
-        # ${PCL_LIBRARIES}
-	)
+        ${OpenVSLAM_LIB})
 
 add_subdirectory(src)
