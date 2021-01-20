@@ -173,9 +173,7 @@ include_directories(${json_INCLUDE_DIR})
 
 # pcl
 find_package(PCL 1.7 REQUIRED REQUIRED)
-#set(PCL_INCLUDE_DIRS ${OpenVSLAM_ROOT}/3rd/pcl/include)
 include_directories(${PCL_INCLUDE_DIRS})
-link_libraries(${PCL_LIBRARIES})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
