@@ -346,6 +346,11 @@ void system::resume_other_threads() const {
         mapper_->resume();
     }
 }
+   
+std::vector<openvslam::data::keyframe*> system::get_keyframes(){
+    auto all_keyframes = map_db_->get_all_keyframes();
+    return all_keyframes;
+}
 
 std::vector<openvslam::data::landmark*> system::print_landmarks(){
     std::vector<openvslam::data::landmark*> landmarks;
