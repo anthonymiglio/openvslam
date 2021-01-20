@@ -54,6 +54,8 @@ public:
 
     std::vector<openvslam::data::landmark*> print_landmarks();
     
+    std::vector<openvslam::data::keyframe*> system::get_keyframes();
+    
     //-----------------------------------------
     // data I/O
 
